@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="styleHome.css" />
+    <title>MiniGame</title>
+  </head>
+  <body class="h-[100vh] w-[100vw] bg-slate-100">
+    <!-- Navbar -->
+    <nav class="flex justify-center  color">
+      <div
+        id="navbar"
+        class=" bg-gradient-to-r from-black via-gray-800 to-blue-600  w-[80vw] h-[10vh] flex justify-between items-center pl-[5vw] pr-[5vw] rounded-full"
+      >
+        <div id="box-logo" class="flex gap-1 items-end">
+          <img src="/immagini/logo.avif" alt="logo pagina" class="h-[40px] rounded-full" />
+          <h4 class="text-orange-500 text-[20px]">MiniGame</h4>
+        </div>
+
+        <ul id="box-pulsanti" class="flex gap-20 items-center ">
+          <li class="text-[30px] text-orange-500 font-bold hover:text-[35px] hidden xl:block">Home</li>
+          <li><img src="/immagini/menu.svg" alt="barre menu" title="menu" id="menu" class="h-10 hover:h-16 "></li>
+        </ul>
+
+      </div>
+    </nav>
+    <aside id="box-bottoni" class="h-[60vh] w-[100vw] xl:w-[30vh] xl bg-gradient-to-b from-black via-gray-800 to-blue-800  flex flex-col justify-center items-center gap-[5vh] relative ">
+      
+        <button id="iscriviti" class="bg-green-500 rounded-full p-4 text-[15px] font-bold">Iscriviti!</button>
+        <button id="accedi" class="bg-gray-300 rounded-full p-4 text-[15px] font-semibold">Accedi</button>
+        <button id="home" class="  text-[25px] font-bold text-[#daa520] hidden">Home</button>
+        <button id="chiudi" >
+          <img src="/immagini/x-solid.svg" alt="x" title="chiudi" class="absolute top-4 right-3 h-[2vh]" >
+        </button>
+        <div class="flex gap-3">
+          <img src="/immagini/instagram.svg" alt="instagram" class="h-[4vh]">
+          <img src="/immagini/x-twitter.svg" alt="X" class="h-[4vh]">
+          <img src="/immagini/youtube.svg" alt="YouTube" class="h-[4vh]">
+        </div>
+      
+    </aside>
+    <script src="scriptHme.js"></script>
+  </body>
+</html>
