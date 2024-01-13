@@ -8,14 +8,12 @@
     <link rel="stylesheet" href="styleHome.css" />
     <title>MiniGame</title>
   </head>
-  <body
-    class="h-[100vh] w-[100%] bg-black xl:relative"
-  >
+  <body class="h-[100vh] w-[100%] bg-black xl:relative">
     <!-- Navbar -->
 
     <div
       id="navbar"
-      class="bg-[#212233e6] w-[100%] h-[10vh] xl:h-[7vh] flex justify-between items-center pl-[3vw] pr-[3vw] "
+      class="bg-[#212233e6] w-[100%] h-[10vh] xl:h-[7vh] flex justify-between items-center pl-[3vw] pr-[3vw]"
     >
       <div id="box-logo" class="flex gap-1 items-end">
         <img
@@ -23,83 +21,136 @@
           alt="logo pagina"
           class="h-[7vh] xl:h-[5vh] rounded-full"
         />
-        <h4 class="text-[#fffafa] text-[20px] md:text-[30px] xl:text-[25px] font-serif">MiniGame</h4>
+        <h4
+          class="text-[#fffafa] text-[20px] md:text-[30px] xl:text-[25px] font-serif"
+        >
+          MiniGame
+        </h4>
       </div>
-      <div id="ricerca" class=" bg-[#373952] flex items-center justify-center xl:p-3 gap-2 h-10 w-10 xl:h-10 xl:w-[25vw] md:h-14 md:w-[35vw] rounded-full xl:pr-5 border-2 xl:border-none md:border-none ">
-        <img src="/immagini/search.svg" alt="lente" class="xl:h-5 h-5 md:h-7 ">
-        <p class=" text-[#dcdcdc] hidden xl:block md:block">|</p>
-        <input type="text" placeholder="Cerca giochi" class="bg-[#373952] xl:w-[70vw] outline-none text-[#dcdcdc] hidden xl:block md:block">
+      <div
+        id="ricerca"
+        class="bg-[#373952] flex items-center justify-center xl:p-3 gap-2 h-10 w-10 xl:h-10 xl:w-[25vw] md:h-14 md:w-[35vw] rounded-full xl:pr-5 border-2 xl:border-none md:border-none"
+      >
+        <img src="/immagini/search.svg" alt="lente" class="xl:h-5 h-5 md:h-7" />
+        <p class="text-[#dcdcdc] hidden xl:block md:block">|</p>
+        <input
+          type="text"
+          placeholder="Cerca giochi"
+          class="bg-[#373952] xl:w-[70vw] outline-none text-[#dcdcdc] hidden xl:block md:block"
+        />
       </div>
       <ul id="box-pulsanti" class="flex gap-10 items-center">
-        <li class="  text-[#f8f8ff] font-bold  hidden xl:block xl:text-[16px] ">
-          <button class="bg-violet-700 hover:bg-violet-400 p-2 rounded-full w-[5vw]">Accedi</button>
+        <li class="text-[#f8f8ff] font-bold hidden xl:block xl:text-[16px]">
+          <button
+            class="bg-violet-700 hover:bg-violet-400 p-2 rounded-full w-[5vw]"
+          >
+            Accedi
+          </button>
         </li>
-        <li class="bg-[#212233e6] h-10 w-10 xl:h-10 xl:w-10 md:h-14 md:w-14 flex items-center justify-center rounded-full border-2 border-solid border-b-[#f8f8ff] ">
+        <li
+          class="bg-[#212233e6] h-10 w-10 xl:h-10 xl:w-10 md:h-14 md:w-14 flex items-center justify-center rounded-full border-2 border-solid border-b-[#f8f8ff]"
+        >
           <!-- tasto menu -->
           <img
             src="/immagini/user-regular.svg"
             alt="barre menu"
             title="menu"
             id="menu"
-            class="h-6 xl:h-5 md:h-7 "
+            class="h-6 xl:h-5 md:h-7"
           />
         </li>
       </ul>
     </div>
-    
+
     <!-- aside al click del tasto menu -->
+    <!-- mettere hidden all'aside -->
     <aside
       id="aside"
-      class="h-[60vh] w-[100vw] xl:w-[30vh]  bg-gradient-to-b from-black via-gray-800 to-blue-600 flex flex-col justify-center items-center gap-[5vh] relative xl:absolute xl:right-2 hidden"
+      class="h-[90vh] w-[100vw] xl:h-[93vh] xl:w-[40vh] bg-gradient-to-b from-violet-500 to-[#000000e6] flex flex-col justify-center items-center gap-[5vh] relative xl:absolute xl:right-0 hidden"
     >
-      <button
-        id="iscriviti"
-        class="bg-green-500 rounded-full p-4 text-[15px] md:text-[20px] font-bold"
-      >
-        Iscriviti!
-      </button>
-      <button
-        id="accedi"
-        class="bg-gray-300 rounded-full p-4 text-[15px] md:text-[20px] font-semibold"
-      >
-        Accedi
-      </button>
-      <button
-        id="home"
-        class="text-[25px] font-bold text-[#daa520] md:text-[35px] hidden"
-      >
-        Home
-      </button>
+      <div class="flex gap-5">
+        <button
+          id="iscriviti"
+          class="bg-[#00ffc7] rounded-full p-4 text-[20px] md:text-[20px] font-bold xl:text-[20px] hover:bg-green-500"
+        >
+          Iscriviti!
+        </button>
+        <button
+          id="accedi"
+          class="bg-white rounded-full p-4 text-[20px] md:text-[20px] font-semibold xl:text-[20px] hover:bg-gray-400"
+        >
+          Accedi
+        </button>
+      </div>
+      <!-- pulsante che deve comparire solo quando si e' nelle pagine dei giochi -->
+      <div>
+        <button
+          id="home"
+          class="text-[25px] font-bold text-[#C0c0c0] md:text-[35px] hover:text-white"
+        >
+          Torna alla home!
+        </button>
+      </div>
+      <!-- assistenza e installa app (installa app non funzionante attualmente) -->
+      <div class="flex flex-col gap-3 ">
+        <button class="flex gap-5 items-center text-[20px] text-white hover:text-gray-500">
+          <img src="/immagini/assistenza.svg" alt="assistenza" class=" h-6 md:h-8 xl:h-7">
+          Assistenza
+        </button>
+        <button class="flex gap-5  items-center text-[20px] text-white hover:text-gray-500">
+          <img src="/immagini/download-solid.svg" alt="scarica app" class="h-6 md:h-8 xl:h-7">
+          Scarica applicazione
+        </button>
+      </div>
+      <!-- pulsante cambia lingua -->
       
+      <!-- minifooter -->
+      <div class="flex gap-6">
+        <ul class="text-[#c0c0c0]">
+          <li class="hover:text-gray-500">Chi siamo</li>
+          <li class="hover:text-gray-500">Sito per bambini</li>
+          <li class="hover:text-gray-500">Offerte di lavoro</li>
+          <li class="hover:text-gray-500">Sviluppatori sito </li>
+          <li class="hover:text-gray-500">Preferenze</li>
+        </ul>
+        <ul class="text-[#c0c0c0]">
+          <li class="hover:text-gray-500">Pubblicita'</li>
+          <li class="hover:text-gray-500">Condizioni di utilizzo</li>
+          <li class="hover:text-gray-500">Cookie</li>
+          <li class="hover:text-gray-500">Tutti i giochi</li>
+        </ul>
+      </div>
+      <!-- div che contiene le icone per le pagine -->
       <div class="flex gap-5">
         <div
-          class="bg-gray-950 h-12 w-12 flex items-center justify-center rounded-full"
+          class="bg-gray-950 h-12 w-12 flex items-center justify-center rounded-full md:h-16 md:w-16 xl:h-14 xl:w-14 border-2 border-solid border-violet-500"
         >
           <img
             src="/immagini/instagram.svg"
             alt="instagram"
-            class="h-[4vh] xl:h-7"
+            class="h-6 xl:h-7 md:h-9"
           />
         </div>
         <div
-          class="bg-gray-950 h-12 w-12 flex items-center justify-center rounded-full"
+          class="bg-gray-950 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full xl:h-14 xl:w-14 border-2 border-solid border-violet-500"
         >
-          <img src="/immagini/x-twitter.svg" alt="X" class="h-[4vh] xl:h-7" />
+          <img src="/immagini/x-twitter.svg" alt="X" class="h-6 xl:h-7 md:h-9" />
         </div>
         <div
-          class="bg-gray-950 h-12 w-12 flex items-center justify-center rounded-full"
+          class="bg-gray-950 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full xl:h-14 xl:w-14 border-2 border-solid border-violet-500"
         >
           <img
             src="/immagini/youtube.svg"
             alt="YouTube"
-            class="h-[4vh] xl:h-7"
+            class="h-6 xl:h-7 md:h-9"
           />
         </div>
       </div>
+
     </aside>
 
     <!-- sezione che contiene le card che descrivono i giochi -->
-    <div id="box-card"></div>
+    <div id="box-card" class="flex"></div> 
 
     <script src="scriptHme.js"></script>
   </body>

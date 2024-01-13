@@ -16,19 +16,19 @@ fetch("/Api.json")
     
     let card = document.createElement("div");
     card.classList.add(
-      "bg-white",
-      "rounded-lg",
-      "p-6",
-      "m-4",
-      "w-[300px]",
-      "text-white"
+      "bg-violet-400", "h-max", "w-[50vw]",
+      "md:h-[25vh]" , "md:w-max", "xl:h-[25vh]",
+      "rounded-lg", "flex", "flex-col", "gap-3",
+      "p-6", "m-4", "relative",
+      
+      
     );
 
     
     card.innerHTML = `
-      <img src="${game.immagine}" alt="${game.titolo}" class="h-[150px] w-full  rounded mb-4">
-      <h2 class="text-2xl font-bold mb-2">${game.titolo}</h2>
-      <p>${game.descrizione}</p>
+      <img src="${game.immagine}" alt="${game.titolo}" class="w-full md:h-[100px] md:w-[200px] rounded-lg " >
+      <h2 class="text-black font-bold text-[20px]">${game.titolo}</h2>
+      <button id= "gioca" ><img src="${game.bottone}" alt="fantasma" title= " Gioca" class="absolute bottom-2 right-4 h-[5vh]" ></img></button>
     `;
 
     
