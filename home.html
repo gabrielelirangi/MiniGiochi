@@ -4,44 +4,103 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <link rel="stylesheet" href="styleHome.css" />
     <title>MiniGame</title>
   </head>
-  <body class="h-[100vh] w-[100vw] bg-slate-100">
+  <body
+    class="h-[100vh] w-[100%] bg-black xl:relative"
+  >
     <!-- Navbar -->
-    <nav class="flex justify-center  color">
-      <div
-        id="navbar"
-        class=" bg-gradient-to-r from-black via-gray-800 to-blue-600  w-[80vw] h-[10vh] flex justify-between items-center pl-[5vw] pr-[5vw] rounded-full"
-      >
-        <div id="box-logo" class="flex gap-1 items-end">
-          <img src="/immagini/logo.avif" alt="logo pagina" class="h-[40px] rounded-full" />
-          <h4 class="text-orange-500 text-[20px]">MiniGame</h4>
-        </div>
 
-        <ul id="box-pulsanti" class="flex gap-20 items-center ">
-          <li class="text-[30px] text-orange-500 font-bold hover:text-[35px] hidden xl:block">Home</li>
-          <li><img src="/immagini/menu.svg" alt="barre menu" title="menu" id="menu" class="h-10 hover:h-16 "></li>
-        </ul>
-
+    <div
+      id="navbar"
+      class="bg-[#212233e6] w-[100%] h-[10vh] xl:h-[7vh] flex justify-between items-center pl-[3vw] pr-[3vw] "
+    >
+      <div id="box-logo" class="flex gap-1 items-end">
+        <img
+          src="/immagini/logo.avif"
+          alt="logo pagina"
+          class="h-[7vh] xl:h-[5vh] rounded-full"
+        />
+        <h4 class="text-[#fffafa] text-[20px] md:text-[30px] xl:text-[25px] font-serif">MiniGame</h4>
       </div>
-    </nav>
-    <aside id="box-bottoni" class="h-[60vh] w-[100vw] xl:w-[30vh] xl bg-gradient-to-b from-black via-gray-800 to-blue-800  flex flex-col justify-center items-center gap-[5vh] relative ">
+      <div id="ricerca" class=" bg-[#373952] flex items-center justify-center xl:p-3 gap-2 h-10 w-10 xl:h-10 xl:w-[25vw] md:h-14 md:w-[35vw] rounded-full xl:pr-5 border-2 xl:border-none md:border-none ">
+        <img src="/immagini/search.svg" alt="lente" class="xl:h-5 h-5 md:h-7 ">
+        <p class=" text-[#dcdcdc] hidden xl:block md:block">|</p>
+        <input type="text" placeholder="Cerca giochi" class="bg-[#373952] xl:w-[70vw] outline-none text-[#dcdcdc] hidden xl:block md:block">
+      </div>
+      <ul id="box-pulsanti" class="flex gap-10 items-center">
+        <li class="  text-[#f8f8ff] font-bold  hidden xl:block xl:text-[16px] ">
+          <button class="bg-violet-700 hover:bg-violet-400 p-2 rounded-full w-[5vw]">Accedi</button>
+        </li>
+        <li class="bg-[#212233e6] h-10 w-10 xl:h-10 xl:w-10 md:h-14 md:w-14 flex items-center justify-center rounded-full border-2 border-solid border-b-[#f8f8ff] ">
+          <!-- tasto menu -->
+          <img
+            src="/immagini/user-regular.svg"
+            alt="barre menu"
+            title="menu"
+            id="menu"
+            class="h-6 xl:h-5 md:h-7 "
+          />
+        </li>
+      </ul>
+    </div>
+    
+    <!-- aside al click del tasto menu -->
+    <aside
+      id="aside"
+      class="h-[60vh] w-[100vw] xl:w-[30vh]  bg-gradient-to-b from-black via-gray-800 to-blue-600 flex flex-col justify-center items-center gap-[5vh] relative xl:absolute xl:right-2 hidden"
+    >
+      <button
+        id="iscriviti"
+        class="bg-green-500 rounded-full p-4 text-[15px] md:text-[20px] font-bold"
+      >
+        Iscriviti!
+      </button>
+      <button
+        id="accedi"
+        class="bg-gray-300 rounded-full p-4 text-[15px] md:text-[20px] font-semibold"
+      >
+        Accedi
+      </button>
+      <button
+        id="home"
+        class="text-[25px] font-bold text-[#daa520] md:text-[35px] hidden"
+      >
+        Home
+      </button>
       
-        <button id="iscriviti" class="bg-green-500 rounded-full p-4 text-[15px] font-bold">Iscriviti!</button>
-        <button id="accedi" class="bg-gray-300 rounded-full p-4 text-[15px] font-semibold">Accedi</button>
-        <button id="home" class="  text-[25px] font-bold text-[#daa520] hidden">Home</button>
-        <button id="chiudi" >
-          <img src="/immagini/x-solid.svg" alt="x" title="chiudi" class="absolute top-4 right-3 h-[2vh]" >
-        </button>
-        <div class="flex gap-3">
-          <img src="/immagini/instagram.svg" alt="instagram" class="h-[4vh]">
-          <img src="/immagini/x-twitter.svg" alt="X" class="h-[4vh]">
-          <img src="/immagini/youtube.svg" alt="YouTube" class="h-[4vh]">
+      <div class="flex gap-5">
+        <div
+          class="bg-gray-950 h-12 w-12 flex items-center justify-center rounded-full"
+        >
+          <img
+            src="/immagini/instagram.svg"
+            alt="instagram"
+            class="h-[4vh] xl:h-7"
+          />
         </div>
-      
+        <div
+          class="bg-gray-950 h-12 w-12 flex items-center justify-center rounded-full"
+        >
+          <img src="/immagini/x-twitter.svg" alt="X" class="h-[4vh] xl:h-7" />
+        </div>
+        <div
+          class="bg-gray-950 h-12 w-12 flex items-center justify-center rounded-full"
+        >
+          <img
+            src="/immagini/youtube.svg"
+            alt="YouTube"
+            class="h-[4vh] xl:h-7"
+          />
+        </div>
+      </div>
     </aside>
+
+    <!-- sezione che contiene le card che descrivono i giochi -->
+    <div id="box-card"></div>
+
     <script src="scriptHme.js"></script>
   </body>
 </html>
