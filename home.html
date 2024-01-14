@@ -47,13 +47,13 @@
             Accedi
           </button>
         </li>
-        <li
+        <li id="profilo"
           class="bg-[#212233e6] h-10 w-10 xl:h-10 xl:w-10 md:h-14 md:w-14 flex items-center justify-center rounded-full border-2 border-solid border-b-[#f8f8ff]"
         >
           <!-- tasto menu -->
           <img
             src="/immagini/user-regular.svg"
-            alt="barre menu"
+            alt=" menu"
             title="menu"
             id="menu"
             class="h-6 xl:h-5 md:h-7"
@@ -63,7 +63,7 @@
     </div>
 
     <!-- aside al click del tasto menu -->
-    <!-- mettere hidden all'aside -->
+    
     <aside
       id="aside"
       class="h-[90vh] w-[100vw] xl:h-[93vh] xl:w-[40vh] bg-gradient-to-b from-violet-500 to-[#000000e6] flex flex-col justify-center items-center gap-[5vh] relative xl:absolute xl:right-0 hidden"
@@ -122,22 +122,20 @@
       </div>
       <!-- div che contiene le icone per le pagine -->
       <div class="flex gap-5">
-        <div
-          class="bg-gray-950 h-12 w-12 flex items-center justify-center rounded-full md:h-16 md:w-16 xl:h-14 xl:w-14 border-2 border-solid border-violet-500"
-        >
+        <div id="social" class="  bg-gray-950 h-12 w-12 flex items-center justify-center rounded-full md:h-16 md:w-16 xl:h-14 xl:w-14 ">
           <img
             src="/immagini/instagram.svg"
             alt="instagram"
             class="h-6 xl:h-7 md:h-9"
           />
         </div>
-        <div
-          class="bg-gray-950 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full xl:h-14 xl:w-14 border-2 border-solid border-violet-500"
+        <div id="social2"
+          class=" bg-gray-950 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full xl:h-14 xl:w-14 "
         >
           <img src="/immagini/x-twitter.svg" alt="X" class="h-6 xl:h-7 md:h-9" />
         </div>
-        <div
-          class="bg-gray-950 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full xl:h-14 xl:w-14 border-2 border-solid border-violet-500"
+        <div id="social3"
+          class=" bg-gray-950 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full xl:h-14 xl:w-14 "
         >
           <img
             src="/immagini/youtube.svg"
@@ -149,8 +147,10 @@
 
     </aside>
 
+    <!-- div che contiene la barra di ricerca al premere della lente in versione telefono -->ç
+    <div id="box-ricerca" class="xl:hidden md:hidden "></div>
     <!-- sezione che contiene le card che descrivono i giochi -->
-    <div id="box-card" class="flex"></div> 
+    <div id="box-card" class="flex mt-4"></div> 
 
     <script src="scriptHme.js"></script>
   </body>
