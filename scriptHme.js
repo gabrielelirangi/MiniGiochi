@@ -19,9 +19,9 @@ fetch("/Api.json")
     
     let card = document.createElement("div");
     card.classList.add(
-      "bg-violet-400", "h-max", "w-[50vw]",
-      "md:h-[25vh]" , "md:w-max", "xl:h-[25vh]",
-      "rounded-lg", "flex", "flex-col", "gap-3",
+      "bg-violet-700", "h-max", "w-[50vw]",
+      "md:h-[25vh]" , "md:w-max", "xl:h-[30vh]",
+      "rounded-lg", "flex", "flex-col", "gap-5",
       "p-6", "m-4", "relative",
       "hover:border-2", "hover:border-solid", "hover:border-bg-[#110041]", 
       
@@ -30,7 +30,7 @@ fetch("/Api.json")
     
     card.innerHTML = `
       <img src="${game.immagine}" alt="${game.titolo}" class="w-full md:h-[100px] md:w-[200px] rounded-lg " >
-      <h2 class="text-black font-bold text-[20px]">${game.titolo}</h2>
+      <h2 class="text-white font-bold text-[20px]">${game.titolo}</h2>
       <button id= "gioca" ><img src="${game.bottone}" alt="fantasma" title= " Gioca" class="absolute bottom-2 right-4 h-[5vh]" ></img></button>
     `;
 
@@ -119,7 +119,33 @@ ricerca.addEventListener("click", barraDiRicerca);
 
 // logica di ricerca della barra
 
-// da implementare ancora
+
+
+
+
+
+function cercaCard() {
+  const carcaCarte = document.getElementById("ricerca").querySelector("input").value.toLowerCase();
+  
+  
+  Array.from(boxCard.children).forEach((card) => {  //converto la lista dei figli di box card cosi uso il foreach per comparare il valore di input con i titoli delle card
+    const title = card.querySelector("h2").innerText.toLowerCase();
+
+    
+    if (title.includes(carcaCarte)) {
+      card.style.display = "block"; 
+    } else {
+      card.style.display = "none"; 
+    }
+  });
+}
+
+
+document.getElementById("ricerca").addEventListener("input", cercaCard);
+
+
+
+
 
 
 

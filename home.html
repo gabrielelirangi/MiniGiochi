@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styleHome.css" />
     <title>MiniGame</title>
   </head>
-  <body class="h-[100vh] w-[100%] bg-black xl:relative">
+  <body class="h-[100vh] w-[100%] bg-black xl:relative bg-[url('https://images.unsplash.com/photo-1621246159024-e53b1d25fc1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNmb25kbyUyMHZpb2xhfGVufDB8fDB8fHww')] bg-cover">
     <!-- Navbar -->
 
     <div
@@ -66,7 +66,7 @@
     
     <aside
       id="aside"
-      class="h-[90vh] w-[100vw] xl:h-[93vh] xl:w-[40vh] bg-gradient-to-b from-violet-500 to-[#000000e6] flex flex-col justify-center items-center gap-[5vh] relative xl:absolute xl:right-0 hidden"
+      class="z-20 h-[90vh] w-[100vw] xl:h-[93vh] xl:w-[40vh] bg-gradient-to-b from-violet-500 to-[#000000e6]  flex flex-col justify-center items-center gap-[5vh] relative xl:absolute xl:right-0 hidden"
     >
       <div class="flex gap-5">
         <button
@@ -147,10 +147,10 @@
 
     </aside>
 
-    <!-- div che contiene la barra di ricerca al premere della lente in versione telefono -->ç
-    <div id="box-ricerca" class="xl:hidden md:hidden "></div>
+    <!-- div che contiene la barra di ricerca al premere della lente in versione telefono -->
+    <div id="box-ricerca" class="xl:hidden md:hidden z-20"></div>
     <!-- sezione che contiene le card che descrivono i giochi -->
-    <div id="box-card" class="flex mt-4"></div> 
+    <div id="box-card" class="flex  flex-wrap mt-4"></div> 
 
     <script src="scriptHme.js"></script>
   </body>
