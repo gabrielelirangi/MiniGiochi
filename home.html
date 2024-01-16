@@ -29,15 +29,17 @@
       </div>
       <div
         id="ricerca"
-        class="bg-[#373952] flex items-center justify-center xl:p-3 gap-2 h-10 w-10 xl:h-10 xl:w-[25vw] md:h-14 md:w-[35vw] rounded-full xl:pr-5 border-2 xl:border-none md:border-none"
+        class="bg-[#373952] flex items-center justify-center xl:p-3 gap-2 h-[6vh] w-[11vw] xl:h-10 xl:w-[25vw] md:h-14 md:w-[35vw] rounded-full xl:pr-5 border-2 xl:border-none md:border-none "
       >
-        <img src="/immagini/search.svg" alt="lente" class="xl:h-5 h-5 md:h-7" />
+        <img src="/immagini/search.svg" alt="lente" class="xl:h-5 h-[3vh] absolute  md:h-7 block  md:static xl:static" id="ricerca-icona"/>
         <p class="text-[#dcdcdc] hidden xl:block md:block">|</p>
         <input
+          id="ricerca-input"
           type="text"
           placeholder="Cerca giochi"
-          class="bg-[#373952] xl:w-[70vw] outline-none text-[#dcdcdc] hidden xl:block md:block"
+          class=" bg-[#373952]  md:w-auto xl:w-[70vw] outline-none text-[#dcdcdc] hidden  mt-[20vh] z-20  xl:block md:block  md:m-0 xl:mt-0 p-2 pl-10 md:p-0 xl-m-0 xl:p-0 "
         />
+        
       </div>
       <ul id="box-pulsanti" class="flex gap-10 items-center">
         <li class="text-[#f8f8ff] font-bold hidden xl:block xl:text-[16px]">
@@ -48,7 +50,7 @@
           </button>
         </li>
         <li id="profilo"
-          class="bg-[#212233e6] h-10 w-10 xl:h-10 xl:w-10 md:h-14 md:w-14 flex items-center justify-center rounded-full border-2 border-solid border-b-[#f8f8ff]"
+          class="bg-[#212233e6] h-[6vh] w-[11vw] xl:h-10 xl:w-10 md:h-14 md:w-14 flex items-center justify-center rounded-full border-2 border-solid border-b-[#f8f8ff]"
         >
           <!-- tasto menu -->
           <img
@@ -56,7 +58,7 @@
             alt=" menu"
             title="menu"
             id="menu"
-            class="h-6 xl:h-5 md:h-7"
+            class="h-[3vh] xl:h-5 md:h-7"
           />
         </li>
       </ul>
@@ -148,7 +150,7 @@
     </aside>
 
     <!-- div che contiene la barra di ricerca al premere della lente in versione telefono -->
-    <div id="box-ricerca" class="xl:hidden md:hidden z-20"></div>
+    <!-- <div id="box-ricerca" class="xl:hidden md:hidden z-20"></div> -->
     <!-- sezione che contiene le card che descrivono i giochi -->
     <div id="box-card" class="flex  flex-wrap mt-4"></div> 
 

@@ -31,7 +31,7 @@ fetch("/Api.json")
     card.innerHTML = `
       <img src="${game.immagine}" alt="${game.titolo}" class="w-full md:h-[100px] md:w-[200px] rounded-lg " >
       <h2 class="text-white font-bold text-[20px]">${game.titolo}</h2>
-      <button id= "gioca" ><img src="${game.bottone}" alt="fantasma" title= " Gioca" class="absolute bottom-2 right-4 h-[5vh]" ></img></button>
+      <button id= "gioca" ><a href="${game.percorso}"><img src="${game.bottone}" alt="fantasma" title= " Gioca" class="absolute bottom-2 right-4 h-[5vh]" ></img></a</button>
     `;
 
     
@@ -93,37 +93,27 @@ omino.addEventListener("mouseout" , () => {
 
 // logica che fa comparire l'input testuale in versione telefono
 
-let ricerca = document.getElementById("ricerca");
-let boxRicerca = document.getElementById("box-ricerca");
-let boxAperto = false; // Flag per tracciare lo stato dell'elemento di ricerca
+var ricercaDiv = document.getElementById('ricerca');
+var ricercaInput = document.getElementById('ricerca-input');
+var ricercaIcona = document.getElementById('ricerca-icona');
 
+ricercaDiv.addEventListener('click', function (event) {
+    // Verifica se l'evento viene scatenato dall'input stesso
+    if (event.target !== ricercaInput) {
+        ricercaInput.classList.toggle('hidden');
+        ricercaInput.focus();
+    }
+});
 
-const barraDiRicerca = () => {
-  if (boxAperto) {
-    boxRicerca.innerHTML = "";
-    boxRicerca.classList.remove("h-[7vh]", "w-[100vw]", "absolute", "top-[10vh]");
-  } else {
-    let input = document.createElement("input");
-    input.type = "text";
-    boxRicerca.appendChild(input);
-    boxRicerca.classList.add("h-[7vh]", "w-[100vw]", "absolute", "top-[10vh]");
-    input.classList.add("h-[5vh]", "w-[70vw]", "ml-[15vw]", "rounded-full", "pl-3", "outline-none");
-    input.focus();
-  }
-  boxAperto = !boxAperto;
-};
-
-ricerca.addEventListener("click", barraDiRicerca);
-
+// evento al premere enter su tastiera
+ricercaInput.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        ricercaInput.classList.add('hidden');
+    }
+});
 
 
 // logica di ricerca della barra
-
-
-
-
-
-
 function cercaCard() {
   const carcaCarte = document.getElementById("ricerca").querySelector("input").value.toLowerCase();
   
