@@ -90,29 +90,32 @@ omino.addEventListener("mouseout" , () => {
 
 
 
-// da qui in poi verra' inserita tutta la logica del pagina del gioco
-let schermo = document.getElementById("schermo");
-let gioca = document.getElementById("gioca");
+function creaCarte(id, imageUrl) {
+    let carta = document.createElement("div");
+    carta.classList.add("bg-black", "rounded", "overflow-hidden", "shadow-md");
 
+    let img = document.createElement("img");
+    img.classList.add("w-full", "h-32", "object-contain");
+    img.src = imageUrl;
+    img.alt = `Carta ${id}`;
 
-// creo una funzione che al richiamo mi crei un pulsante che mi permette di scegliere la difficolta' del gioco
-const creaBottoni = (testo, schermo, link) => {
-    let bottone = document.createElement("button");
-    bottone.textContent = testo;
-    //evento che mi collega con il click del bottone alla pagina specifica
-    bottone.addEventListener("click", () => {
-        window.location.href = link; //uso la proprieta' window che rappresenta l'url della pagina corrente, che al click del bottone verra' sostituito con il collegamento della pagina che vogliamo raggiungere
+    carta.appendChild(img);
+
+    return carta;
+  }
+
+  // Funzione per inizializzare le carte nel div con ID "schermo"
+  function initializeCards(data) {
+    let schermo = document.getElementById("schermo");
+
+    data.forEach(({ id, immagine }) => {
+      let carta = creaCarte(id, immagine);
+      schermo.appendChild(carta);
     });
+  }
 
-    schermo.appendChild(bottone);
-    return bottone;
-}
-
-gioca.addEventListener("click", () =>{
-    gioca.classList.add("hidden");
-    let btn1 = creaBottoni("FACILE", schermo, "/giocomemory/facile/facile.html");
-    let btn2 = creaBottoni("DIFFICILE", schermo, "/giocomemory/difficile/difficile.html");
-    let btn3 = creaBottoni("AVANZATO", schermo, "/giocomemory/avanzato/avanzato.html");
-    let btn4 = creaBottoni("Help" , schermo, "/giocomemory/help/help.html");
-})
-
+  // Carica i dati dal file JSON utilizzando fetch
+  fetch('/giocomemory/facile/file.json')
+    .then(response => response.json())
+    .then(data => initializeCards(data))
+    .catch(error => console.error('Errore durante il recupero dei dati:', error));

@@ -2,21 +2,14 @@ let aside = document.getElementById("aside");
 let menu = document.getElementById("menu");
 let boxCard = document.getElementById("box-card");
 
-
-
-
 // function che mostra e toglie il menu
 menu.addEventListener("click", () => {
   aside.classList.toggle("hidden");
 });
 
-// creo le card in maniera dinamica attraverso un api
-
-fetch("/Api.json")
-.then((response) => response.json())
-.then((data) => {
+// Funzione per creare le carte dinamicamente
+function createGameCards(data) {
   data.forEach((game) => {
-    
     let card = document.createElement("div");
     card.classList.add(
       "bg-violet-700", "h-max", "w-[50vw]",
@@ -24,23 +17,29 @@ fetch("/Api.json")
       "rounded-lg", "flex", "flex-col", "gap-5",
       "p-6", "m-4", "relative",
       "hover:border-2", "hover:border-solid", "hover:border-bg-[#110041]", 
-      
     );
 
-    
     card.innerHTML = `
       <img src="${game.immagine}" alt="${game.titolo}" class="w-full md:h-[100px] md:w-[200px] rounded-lg " >
       <h2 class="text-white font-bold text-[20px]">${game.titolo}</h2>
       <button id= "gioca" ><a href="${game.percorso}"><img src="${game.bottone}" alt="fantasma" title= " Gioca" class="absolute bottom-2 right-4 h-[5vh]" ></img></a</button>
     `;
 
-    
     boxCard.appendChild(card);
   });
-})
-.catch((error) =>
-  console.error("Errore durante il recupero del file JSON:", error)
-);
+}
+
+// caricamento dei dati dal file json
+fetch("/Api.json")
+  .then((response) => response.json())
+  .then((data) => createGameCards(data))
+  .catch((error) =>
+    console.error("Errore durante il recupero del file JSON:", error)
+  );
+
+
+
+
 
 
 
