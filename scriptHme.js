@@ -8,7 +8,7 @@ menu.addEventListener("click", () => {
 });
 
 // Funzione per creare le carte dinamicamente
-function createGameCards(data) {
+function creaCarteGioco(data) {
   data.forEach((game) => {
     let card = document.createElement("div");
     card.classList.add(
@@ -16,8 +16,7 @@ function createGameCards(data) {
       "md:h-[25vh]" , "md:w-max", "xl:h-[30vh]",
       "rounded-lg", "flex", "flex-col", "gap-5",
       "p-6", "m-4", "relative",
-      "hover:border-2", "hover:border-solid", "hover:border-bg-[#110041]", 
-    );
+      "hover:border-2", "hover:border-solid", "hover:border-bg-[#110041]" );
 
     card.innerHTML = `
       <img src="${game.immagine}" alt="${game.titolo}" class="w-full md:h-[100px] md:w-[200px] rounded-lg " >
@@ -32,7 +31,7 @@ function createGameCards(data) {
 // caricamento dei dati dal file json
 fetch("/Api.json")
   .then((response) => response.json())
-  .then((data) => createGameCards(data))
+  .then((data) => creaCarteGioco(data))
   .catch((error) =>
     console.error("Errore durante il recupero del file JSON:", error)
   );
