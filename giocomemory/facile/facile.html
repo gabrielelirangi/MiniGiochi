@@ -156,12 +156,19 @@
     </aside>
 
     <!-- schermo del gioco -->
-
+   
     <main class="h-[90vh] xl:h-[93vh] w-[100%] flex flex-col justify-center items-center">
+      <div class="text-white w-[80vw] flex justify-end ">
+        <button class="bg-violet-500 rounded-full py-1 px-2 hover:bg-violet-900"><a href="/giocomemory/memory.html">Torna alla home</a></button>
+      </div>
       <div id="schermo" class="h-[70vh] w-[80vw] bg-black grid grid-cols-3 grid-rows-4 gap-4 p-4">
           <!-- le carte devo essere memorizzate qui -->
       </div>
-      
+      <div class="bg-black w-[80vw] flex justify-between ">
+        <div id="errore" class="text-white text-[20px] font-medium bg-violet-500 px-3 rounded-r-full">Errori: 0 </div>
+        </div>
+      </div>
+      <button id="reset" class="text-[20px] text-white p-2 bg-violet-500 rounded-lg mt-5 font-bold" >Reset</button>
   </main>
 
     

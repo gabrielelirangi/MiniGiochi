@@ -65,7 +65,7 @@ let mischiaImmagine = (array) => {
 let creaCarte = (carteData) => {
   carteData.forEach((carta) => {
     let cartaElemento = document.createElement("div");
-    cartaElemento.classList.add("h-[10vh]", "w-[10vw]" , "bg-yellow-400");
+    cartaElemento.classList.add("h-[10vh]", "w-[10vw]", "bg-yellow-400");
     cartaElemento.innerHTML = `<img src="${carta.img}" alt="immagine" class="w-full h-full object-contain" />`;
     cartaElemento.id = `${carta.id}`;
     cartaElemento.addEventListener("click", eventoClick);
@@ -83,7 +83,6 @@ let eventoClick = (evento) => {
 };
 
 let carteGirate = []; // contenitore delle carte girate
-
 let giraCarte = (cartaId) => {
   let carte = document.getElementById(cartaId);
   let img = carte.querySelector("img");
@@ -101,16 +100,46 @@ let giraCarte = (cartaId) => {
         carteGirate = [];
       } else {
         // carte non uguali
-        setTimeout(() => { // set time out cosi ci mette 1 s per coprire le carte
-          img1.src = "https://i.pinimg.com/736x/1c/1c/0f/1c1c0f8f2770f849a7651d6821226f0d.jpg";
-          img2.src = "https://i.pinimg.com/736x/1c/1c/0f/1c1c0f8f2770f849a7651d6821226f0d.jpg";
+        setTimeout(() => {
+          // set time out cosi ci mette 1 s per coprire le carte
+          img1.src =
+            "https://i.pinimg.com/736x/1c/1c/0f/1c1c0f8f2770f849a7651d6821226f0d.jpg";
+          img2.src =
+            "https://i.pinimg.com/736x/1c/1c/0f/1c1c0f8f2770f849a7651d6821226f0d.jpg";
           carteGirate = [];
+          errori++;
+          aggiornaErrori();
         }, 1000);
       }
     }
   }
-}
+};
 
+// aggiornameento errori commessi
+let errori = 0;
+let aggiornaErrori = () => {
+  let errore = document.getElementById("errore");
+  errore.textContent = "Errori: " + errori;
+};
+
+// logica del tasto reset
+let reset = document.getElementById("reset");
+reset.addEventListener("click", () => {
+  
+  carteGirate = [];
+  errori = 0;
+  aggiornaErrori();
+
+  for(let i = 1; i <= 12 ; i++){
+    let cartaId = "carta-" + i;
+    let img= document.getElementById(cartaId).querySelector("img");
+    img.src = "https://i.pinimg.com/736x/1c/1c/0f/1c1c0f8f2770f849a7651d6821226f0d.jpg";
+  }
+
+});
+
+
+//tempo trascorso al completamento del gioco
 
 // prendo i dati dal file json
 fetch("/giocomemory/facile/file.json")
@@ -123,4 +152,3 @@ fetch("/giocomemory/facile/file.json")
     creaCarte(jsonData);
   })
   .catch((error) => console.error("errore durante il recupero del file json"));
-
