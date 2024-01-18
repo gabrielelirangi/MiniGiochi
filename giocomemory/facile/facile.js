@@ -1,7 +1,6 @@
 let aside = document.getElementById("aside");
 let menu = document.getElementById("menu");
 
-
 // function che mostra e toglie il menu
 menu.addEventListener("click", () => {
   aside.classList.toggle("hidden");
@@ -51,9 +50,8 @@ omino.addEventListener("mouseout", () => {
   omino.style.borderColor = "#f8f8ff";
 });
 
-
-
 // logica carte e del gioco
+
 let schermo = document.getElementById("schermo");
 
 let mischiaImmagine = (array) => {
@@ -62,27 +60,57 @@ let mischiaImmagine = (array) => {
     [array[i], array[nuovoIndice]] = [array[nuovoIndice], array[i]];
   }
   return array;
-}
+};
 
 let creaCarte = (carteData) => {
   carteData.forEach((carta) => {
     let cartaElemento = document.createElement("div");
-    cartaElemento.classList.add("h-[10vh]", "w-[10vw]", "bg-white");
+    cartaElemento.classList.add("h-[10vh]", "w-[10vw]" , "bg-yellow-400");
     cartaElemento.innerHTML = `<img src="${carta.img}" alt="immagine" class="w-full h-full object-contain" />`;
     cartaElemento.id = `${carta.id}`;
     cartaElemento.addEventListener("click", eventoClick);
     schermo.appendChild(cartaElemento);
   });
-}
+};
 
 let eventoClick = (evento) => {
   let cartaElemento = evento.currentTarget;
   let cartaId = cartaElemento.id;
-  
-  // Trova la carta corrispondente nell'array jsonData
   let carta = jsonData.find((carta) => carta.id === cartaId);
   cartaElemento.innerHTML = `<img src="${carta.immagine}" alt="immagine" class="w-full h-full object-contain" />`;
+
+  giraCarte(cartaId);
+};
+
+let carteGirate = []; // contenitore delle carte girate
+
+let giraCarte = (cartaId) => {
+  let carte = document.getElementById(cartaId);
+  let img = carte.querySelector("img");
+
+  if (!carteGirate.includes(cartaId) && carteGirate.length < 2) {
+    img.classList.add("block");
+    carteGirate.push(cartaId);
+
+    if (carteGirate.length === 2) {
+      let img1 = document.getElementById(carteGirate[0]).querySelector("img");
+      let img2 = document.getElementById(carteGirate[1]).querySelector("img");
+
+      if (img1.src === img2.src) {
+        // se le carte coincidono svuota l'array
+        carteGirate = [];
+      } else {
+        // carte non uguali
+        setTimeout(() => { // set time out cosi ci mette 1 s per coprire le carte
+          img1.src = "https://i.pinimg.com/736x/1c/1c/0f/1c1c0f8f2770f849a7651d6821226f0d.jpg";
+          img2.src = "https://i.pinimg.com/736x/1c/1c/0f/1c1c0f8f2770f849a7651d6821226f0d.jpg";
+          carteGirate = [];
+        }, 1000);
+      }
+    }
+  }
 }
+
 
 // prendo i dati dal file json
 fetch("/giocomemory/facile/file.json")
@@ -96,6 +124,3 @@ fetch("/giocomemory/facile/file.json")
   })
   .catch((error) => console.error("errore durante il recupero del file json"));
 
-
-
- 
