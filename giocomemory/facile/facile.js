@@ -55,37 +55,47 @@ omino.addEventListener("mouseout", () => {
 
 // logica carte e del gioco
 let schermo = document.getElementById("schermo");
-let data; // dati json
 
-let creaCarte = (cardsData) => {
-  data = cardsData; // assegna i dati a data
-  data.forEach((carte) => {
-    let carta = document.createElement("div");
-    carta.classList.add("h-[10vh]", "w-[10vw]", "bg-white");
-    carta.innerHTML = `<img src="${carte.img}" alt="immagine" class="w-full h-full object-contain" />`;
-    carta.id = `carta-${carte.id}`;
+let mischiaImmagine = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    let nuovoIndice = Math.floor(Math.random() * array.length);
+    [array[i], array[nuovoIndice]] = [array[nuovoIndice], array[i]];
+  }
+  return array;
+}
 
-    // Aggiungi l'evento di click all'immagine
-    carta.addEventListener("click", eventoclick);
-
-    schermo.appendChild(carta);
+let creaCarte = (carteData) => {
+  carteData.forEach((carta) => {
+    let cartaElemento = document.createElement("div");
+    cartaElemento.classList.add("h-[10vh]", "w-[10vw]", "bg-white");
+    cartaElemento.innerHTML = `<img src="${carta.img}" alt="immagine" class="w-full h-full object-contain" />`;
+    cartaElemento.id = `${carta.id}`;
+    cartaElemento.addEventListener("click", eventoClick);
+    schermo.appendChild(cartaElemento);
   });
-};
+}
 
-let eventoclick = (event) => {
-  let carta = event.currentTarget;
-  let cartaId = carta.id.replace("carta-", "");
-  let cartaData = data.find((carte) => carte.id === cartaId);
-
-  // Mostra l'immagine della carta
-  carta.innerHTML = `<img src="${cartaData.immagine}" alt="immagine" class="w-full h-full object-contain" />`;
-};
+let eventoClick = (evento) => {
+  let cartaElemento = evento.currentTarget;
+  let cartaId = cartaElemento.id;
+  
+  // Trova la carta corrispondente nell'array jsonData
+  let carta = jsonData.find((carta) => carta.id === cartaId);
+  cartaElemento.innerHTML = `<img src="${carta.immagine}" alt="immagine" class="w-full h-full object-contain" />`;
+}
 
 // prendo i dati dal file json
 fetch("/giocomemory/facile/file.json")
   .then((response) => response.json())
-  .then((jsonData) => creaCarte(jsonData))
+  .then((jsonDataResponse) => {
+    // Mischi0
+    jsonData = mischiaImmagine(jsonDataResponse);
+
+    console.log("array iniziale", jsonData);
+    creaCarte(jsonData);
+  })
   .catch((error) => console.error("errore durante il recupero del file json"));
 
 
 
+ 
