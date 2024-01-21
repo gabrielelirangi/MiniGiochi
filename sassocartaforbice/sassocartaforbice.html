@@ -162,47 +162,81 @@
     <main
       class="h-[90vh] xl:h-[93vh] w-[100%] flex flex-col justify-center items-center text-white"
     >
-      <div id="schermo" class="h-[70vh] w-[80vw] bg-black ">
-
-
-        <div id="punteggio" class="flex justify-between p-5">  <!-- header-->
-          <div id="puntiGiocatore" class="flex flex-col items-center gap-2">
+      <div id="schermo" class="h-[70vh] w-[80vw] bg-black bg-[url(/immagini/sfondoGiochi.avif)] bg-cover">
+        <div id="punteggio" class="text-[3vh] flex justify-between p-5 md:py-7 md:px-10 xl:px-12 xl:py-10">
+          <!-- header-->
+          <div id="puntiGiocatore" class="flex flex-col items-center gap-2 text-orange-600">
             <h2>Giocatore</h2>
-            <p>0</p>
+            <p id="ptGiocatore">0</p>
           </div>
-          <div id="puntiComputer" class="flex flex-col items-center gap-2">
+          <div id="puntiComputer" class="flex flex-col items-center gap-2 text-orange-600">
             <h2>Computer</h2>
-            <p>0</p>
+            <p id="ptSistema">0</p>
           </div>
         </div>
 
-
-        <section id="gioco" class="mt-5 ">
-          <div id="inizio" class="flex flex-col items-center gap-2">
-            <h1>Sasso - Carta - Forbici</h1>
-            <button class="mb-[3vh] bg-[#5Da780] hover:bg-[#8bf1b2] rounded-full p-2">Gioca!</button>
+        <section id="gioco" class="mt-5 h-[60vh]">
+          <div id="inizio" class="flex flex-col items-center gap-5 justify-center h-[40vh] md:h-[50vh] xl:h-[40vh] ">
+            <h1 class="text-[3vh] md:text-[4vh] font-extrabold ">Sasso - Carta - Forbici</h1>
+            <button
+              id="btnGioca"
+              class="mb-[3vh] bg-[#5Da780] hover:bg-[#8bf1b2] rounded-full p-3 text-[3vh]"
+            >
+              Gioca!
+            </button>
           </div>
 
-
-          <div id="vs" class="flex flex-col  items-center gap-3 absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] ">
-            <h2 id="mossa" class="">Scegli la tua mossa! Vai!</h2>
-            <div id="check" class="flex gap-4 m-3 ">
-              <button id="sasso" class="bg-violet-800 hover:bg-violet-400 rounded-full p-2">Sasso</button>
-              <button id="carta" class="bg-violet-800 hover:bg-violet-400 rounded-full p-2">Carta</button>
-              <button id="forbici" class="bg-violet-800 hover:bg-violet-400 rounded-full p-2">Forbici</button>
+          <div
+            id="vs"
+            class=" flex flex-col items-center  gap-3 absolute top-[60%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] hidden"
+          >
+            <h2 id="mossa" class="text-[3vh] xl:text-[5vh] ">Scegli la tua mossa! Vai!</h2>
+            <div id="check" class="flex gap-4 m-3 text-[2vh] xl:text-[3vh] ">
+              <button
+                id="sasso"
+                class="bg-violet-800 hover:bg-violet-400 rounded-full p-3"
+              >
+                sasso
+              </button>
+              <button
+                id="carta"
+                class="bg-violet-800 hover:bg-violet-400 rounded-full p-3"
+              >
+                carta
+              </button>
+              <button
+                
+                id="forbici"
+                class="bg-violet-800 hover:bg-violet-400 rounded-full p-3"
+              >
+                forbici
+              </button>
             </div>
-            <div id="lancio" class="flex gap-3 p-2 ">
-              <img src="/sassocartaforbice/immaginiGioco/carta.png" alt="" id="giocatore" class="h-[15vh] transform scale-x-[-1]">
-              <img src="/sassocartaforbice/immaginiGioco/carta.png" alt="" id="computer" class="h-[15vh]">
-              
+            <div id="lancio" class="flex gap-3 xl:gap-5 p-2 ">
+              <img
+                src="/sassocartaforbice/immaginiGioco/carta.png"
+                alt=""
+                id="giocatore"
+                class="h-[15vh] xl:h-[20vh] transform scale-x-[-1] md:mt-5 xl:mt-10"
+              />
+              <img
+                src="/sassocartaforbice/immaginiGioco/carta.png "
+                alt=""
+                id="computer"
+                class="h-[15vh] xl:h-[20vh] md:mt-5 xl:mt-10"
+              />
             </div>
           </div>
-          <div id="vittoria" class="flex flex-col items-center absolute top-[50%] left-[50%]  transform translate-x-[-50%] translate-y-[-50%]">
-            <h1 id="vinto"></h1>
-             <button class="bg-violet-800 hover:bg-violet-400 rounded-full p-2">Restart Game</button>
+          <div
+            id="vittoria"
+            class="hidden flex flex-col items-center absolute top-[60%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] gap-5 "
+          >
+            <h1 id="vinto" class="text-white text-[3vh] xl:text-[5vh] text-center"></h1>
+            <button id="restart" class="bg-violet-800 hover:bg-violet-400 rounded-full p-3 text-[3vh]">
+              Restart Game
+            </button>
           </div>
         </section>
-
       </div>
     </main>
     <script src="script.js"></script>
